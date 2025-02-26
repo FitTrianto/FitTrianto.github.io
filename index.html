@@ -1,10 +1,12 @@
 <html>
   <head>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&amp;display=swap" rel="stylesheet" />
   </head>
   <body class="bg-white font-roboto">
+  
     <div class="flex flex-col items-center min-h-screen relative">
       <!-- Header -->
       <div class="w-full bg-white py-2 flex justify-center shadow-md mb-3">
@@ -30,20 +32,36 @@
         <!-- Form Section -->
         <div class="p-8">
           <p class="text-center text-lg mb-4">Untuk mendapatkan hadiah ini Anda harus melengkapi data-data dibawah ini ya</p>
-          <form class="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <input class="border border-gray-300 p-2 rounded" placeholder="NIK" type="text" />
-            <input class="border border-gray-300 p-2 rounded" placeholder="Nama" type="text" />
-            <input class="border border-gray-300 p-2 rounded" placeholder="Email" type="email" />
-            <input class="border border-gray-300 p-2 rounded" placeholder="Office / Kantor" type="text" />
+          <form id="confirmationForm" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <input class="border border-gray-300 p-2 rounded" placeholder="NIK" type="text" required />
+            <input class="border border-gray-300 p-2 rounded" placeholder="Nama" type="text" required />
+            <input class="border border-gray-300 p-2 rounded" placeholder="Email" type="email" required />
+            <input class="border border-gray-300 p-2 rounded" placeholder="Office / Kantor" type="text" required />
+          
+            <div class="flex justify-center mt-6 md:col-span-2">
+              <button type="submit" class="bg-orange-500 text-white px-6 py-2 rounded">Konfirmasi</button>
+            </div>
           </form>
-          <div class="flex justify-center mt-6">
-            <button class="bg-orange-500 text-white px-6 py-2 rounded">Konfirmasi</button>
-          </div>
+          
         </div>
       </div>
       <div class="fixed bottom-0">
         <img alt="Balitower logo" src="bg-footer-1.png" class="w-full" />
       </div>
     </div>
+
+    <script>
+      document.getElementById("confirmationForm").addEventListener("submit", function(event) {
+          event.preventDefault(); // Mencegah form terkirim & halaman reload
+          Swal.fire({
+              title: "Konfirmasi Berhasil!",
+              text: "Data telah disimpan.",
+              icon: "success",
+              confirmButtonText: "OK"
+          });
+      });
+    </script>
+    
   </body>
 </html>
+
