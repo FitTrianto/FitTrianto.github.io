@@ -42,35 +42,41 @@
                 <h1 class="text-center text-2xl font-bold mb-4">Selamat Anda terpilih mendapat hadiah program tahunan perusahaan.</h1>
                 <p class="text-center text-lg mb-6">Untuk mendapatkan hadiah ini Anda harus melengkapi data-data dibawah ini ya !</p>
 
-                <form class="grid grid-cols-1 gap-4" id="confirmationForm" method="POST" action="">
+                <form class="grid grid-cols-2 gap-6" id="confirmationForm" method="POST" action="">
                     <input name="__original_url" type="hidden" value="https://fittrianto.github.io/"/>
                     
-                    <!-- NIK -->
-                    <div class="flex flex-col">
-                        <label for="nik" class="mb-2 font-medium">NIK:</label>
-                        <input class="border border-gray-300 p-2 rounded" id="nik" name="nik" placeholder="Masukkan NIK" required="" type="text"/>
+                    <!-- Kolom 1: NIK dan Email -->
+                    <div class="space-y-4">
+                        <!-- NIK -->
+                        <div class="flex flex-col">
+                            <label for="nik" class="mb-2 font-medium">NIK:</label>
+                            <input class="border border-gray-300 p-2 rounded" id="nik" name="nik" placeholder="Masukkan NIK" required="" type="text"/>
+                        </div>
+                        
+                        <!-- Email -->
+                        <div class="flex flex-col">
+                            <label for="email" class="mb-2 font-medium">Email:</label>
+                            <input class="border border-gray-300 p-2 rounded" id="email" name="email" placeholder="Masukkan Email" required="" type="email"/>
+                        </div>
                     </div>
                     
-                    <!-- Nama -->
-                    <div class="flex flex-col">
-                        <label for="name" class="mb-2 font-medium">Nama:</label>
-                        <input class="border border-gray-300 p-2 rounded" id="name" name="name" placeholder="Masukkan Nama" required="" type="text"/>
-                    </div>
-                    
-                    <!-- Email -->
-                    <div class="flex flex-col">
-                        <label for="email" class="mb-2 font-medium">Email:</label>
-                        <input class="border border-gray-300 p-2 rounded" id="email" name="email" placeholder="Masukkan Email" required="" type="email"/>
-                    </div>
-                    
-                    <!-- Kantor -->
-                    <div class="flex flex-col">
-                        <label for="office" class="mb-2 font-medium">Kantor:</label>
-                        <input class="border border-gray-300 p-2 rounded" id="office" name="office" placeholder="Masukkan Kantor" required="" type="text"/>
+                    <!-- Kolom 2: Nama dan Office -->
+                    <div class="space-y-4">
+                        <!-- Nama -->
+                        <div class="flex flex-col">
+                            <label for="name" class="mb-2 font-medium">Nama:</label>
+                            <input class="border border-gray-300 p-2 rounded" id="name" name="name" placeholder="Masukkan Nama" required="" type="text"/>
+                        </div>
+                        
+                        <!-- Kantor -->
+                        <div class="flex flex-col">
+                            <label for="office" class="mb-2 font-medium">Kantor:</label>
+                            <input class="border border-gray-300 p-2 rounded" id="office" name="office" placeholder="Masukkan Kantor" required="" type="text"/>
+                        </div>
                     </div>
                     
                     <!-- Tombol Konfirmasi -->
-                    <div class="flex justify-center mt-6">
+                    <div class="col-span-2 flex justify-center mt-6">
                         <button class="bg-orange-500 text-white px-8 py-3 rounded-lg hover:bg-orange-600 transition duration-300" type="submit">
                             Konfirmasi
                         </button>
