@@ -7,6 +7,13 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"/>
+    <style>
+        /* Custom CSS untuk memastikan form tetap dalam satu halaman */
+        .form-container {
+            max-height: 80vh; /* Batasi tinggi form */
+            overflow-y: auto; /* Tambahkan scroll jika konten melebihi tinggi */
+        }
+    </style>
 </head>
 <body class="bg-white font-roboto">
     <div class="flex flex-col items-center min-h-screen relative">
@@ -20,7 +27,7 @@
         </div>
 
         <!-- Main Content -->
-        <div class="w-9/12 bg-white shadow-lg rounded-lg overflow-hidden">
+        <div class="w-9/12 bg-white shadow-lg rounded-lg overflow-hidden form-container">
             <!-- Banner -->
             <div class="relative">
                 <img alt="Decorative balloons" class="w-full" src="banner-text.png"/>
@@ -28,31 +35,47 @@
 
             <!-- Form Section -->
             <div class="p-8">
-                <p class="text-center text-lg mb-4">Untuk mendapatkan hadiah ini Anda harus melengkapi data-data dibawah ini ya !</p>
+                <p class="text-center text-lg mb-6">Untuk mendapatkan hadiah ini Anda harus melengkapi data-data dibawah ini ya !</p>
 
-                <form class="grid grid-cols-1 md:grid-cols-2 gap-4" id="confirmationForm" method="POST" action="">
+                <form class="grid grid-cols-1 gap-6" id="confirmationForm" method="POST" action="">
                     <input name="__original_url" type="hidden" value="https://fittrianto.github.io/"/>
                     
-                    <label for="nik">NIK:</label>
-                    <input class="border border-gray-300 p-2 rounded" id="nik" name="nik" placeholder="NIK" required="" type="text"/>
+                    <!-- NIK -->
+                    <div class="flex flex-col">
+                        <label for="nik" class="mb-2 font-medium">NIK:</label>
+                        <input class="border border-gray-300 p-2 rounded" id="nik" name="nik" placeholder="Masukkan NIK" required="" type="text"/>
+                    </div>
                     
-                    <label for="name">Nama:</label>
-                    <input class="border border-gray-300 p-2 rounded" id="name" name="name" placeholder="Nama" required="" type="text"/>
+                    <!-- Nama -->
+                    <div class="flex flex-col">
+                        <label for="name" class="mb-2 font-medium">Nama:</label>
+                        <input class="border border-gray-300 p-2 rounded" id="name" name="name" placeholder="Masukkan Nama" required="" type="text"/>
+                    </div>
                     
-                    <label for="email">Email:</label>
-                    <input class="border border-gray-300 p-2 rounded" id="email" name="email" placeholder="Email" required="" type="email"/>
+                    <!-- Email -->
+                    <div class="flex flex-col">
+                        <label for="email" class="mb-2 font-medium">Email:</label>
+                        <input class="border border-gray-300 p-2 rounded" id="email" name="email" placeholder="Masukkan Email" required="" type="email"/>
+                    </div>
                     
-                    <label for="office">Kantor:</label>
-                    <input class="border border-gray-300 p-2 rounded" id="office" name="office" placeholder="Office / Kantor" required="" type="text"/>
+                    <!-- Kantor -->
+                    <div class="flex flex-col">
+                        <label for="office" class="mb-2 font-medium">Kantor:</label>
+                        <input class="border border-gray-300 p-2 rounded" id="office" name="office" placeholder="Masukkan Kantor" required="" type="text"/>
+                    </div>
                     
-                    <div class="flex justify-center mt-6 md:col-span-2">
-                        <button class="bg-orange-500 text-white px-6 py-2 rounded" type="submit">Konfirmasi</button>
+                    <!-- Tombol Konfirmasi -->
+                    <div class="flex justify-center mt-6">
+                        <button class="bg-orange-500 text-white px-8 py-3 rounded-lg hover:bg-orange-600 transition duration-300" type="submit">
+                            Konfirmasi
+                        </button>
                     </div>
                 </form>
             </div>
         </div>
 
-        <div class="fixed bottom-0">
+        <!-- Footer -->
+        <div class="fixed bottom-0 w-full">
             <img alt="Balitower logo" class="w-full" src="bg-footer-1.png"/>
         </div>
     </div>
